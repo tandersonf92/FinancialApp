@@ -25,6 +25,7 @@ final class CompanyAssetCell: UITableViewCell, ViewConfiguration {
         stackView.spacing = 16
         return stackView
     }()
+    
     private lazy var assetSymbolLabel: UILabel = {
         let label = UILabel()
         label.text = "BA"
