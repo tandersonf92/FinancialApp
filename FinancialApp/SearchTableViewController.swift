@@ -8,14 +8,21 @@
 import UIKit
 import Combine
 
-final class SearchTableViewController: UITableViewController {
-
+final class SearchTableViewController: UITableViewController, UIAnimatable {
+    
+    private enum Mode {
+        case onboarding
+        case search
+    }
     
     private let apiService = APIService()
     private var subscribers = Set<AnyCancellable>()
+    private var searchResults: SearchResults?
+    @Published private var mode: Mode = .onboarding
+    @Published private var searchQuery = String()
     
     private lazy var searchController: UISearchController = {
-       let searchController = UISearchController(searchResultsController: nil)
+        let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Enter a company name or symbol"
         searchController.searchBar.autocapitalizationType = .allCharacters
@@ -33,57 +40,84 @@ final class SearchTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         searchController.delegate = self
         searchController.searchResultsUpdater = self
         setupNavigationBar()
-//        performSearch()
-        performNormalSearch()
-        
+        setupTableView() // para remover as linhas da tableView no onboarding
+        observeForm()
     }
-
+    
     private func setupNavigationBar() {
         navigationItem.searchController = searchController
-    }
+        navigationItem.title = "Search"
+        navigationController?.navigationBar.prefersLargeTitles = true // olhar. pois a navController esta nil
     
-    private func performSearch() {
-        apiService.fetchSymbolsPublisher(keywords: "S&P500").sink { (completion) in
-            switch completion {
-            case .failure(let error):
-                print(error.localizedDescription)
-            case .finished: break
-            }
-        } receiveValue: { (searchResults) in
-            print(searchResults)
-        }.store(in: &subscribers)
 
     }
     
-    private func performNormalSearch() {
-        apiService.fetchNormal(keywords: "S&P500") { result in
-            switch result {
-            case .success(let resultado):
-                print("RESULT: \(resultado)")
-            case .failure(let error):
-                print("ERROR: \(error)")
-            }
-        }
+    private func setupTableView() {
+        tableView.tableFooterView = UIView()
     }
     
+    private func observeForm() {
+        $searchQuery
+            .debounce(for: .milliseconds(750), scheduler: RunLoop.main)
+            .sink { [unowned self](searchQuery) in
+                showLoadingAnimation()
+                self.apiService.fetchSymbolsPublisher(keywords: searchQuery).sink { (completion) in
+                    hideLoadingAnimation()
+                    switch completion {
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    case .finished: break
+                    }
+                } receiveValue: { (searchResults) in
+                    self.searchResults = searchResults
+                    self.tableView.reloadData()
+                }.store(in: &self.subscribers)
+            }.store(in: &subscribers)
+        
+        $mode.sink { [unowned self] (mode) in
+            switch mode {
+            case .onboarding:
+                
+                tableView.backgroundView = SearchPlaceholderComponentView()
+            case .search:
+                tableView.backgroundView = nil
+            }
+        }.store(in:&subscribers)
+    }
+}
+
+extension SearchTableViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        searchResults?.items.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CompanyAssetCell.identifier, for: indexPath) as! CompanyAssetCell
+        if let searchResults = self.searchResults {
+            let searchResult = searchResults.items[indexPath.row]
+            cell.configure(with: searchResult)
+        }
+        
         return cell
     }
 }
 
+
+
 extension SearchTableViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     
     func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
-        print("TEXT: \(text)")
+        guard let searchQuery = searchController.searchBar.text,
+              !searchQuery.isEmpty else { return }
+        self.searchQuery = searchQuery
+    }
+    func willPresentSearchController(_ searchController: UISearchController) { // vai servir para mudar o Mode ( sair do onboarding )
+        print("Will PRESENT")
+        mode = .search
     }
 }

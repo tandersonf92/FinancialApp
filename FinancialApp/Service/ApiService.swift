@@ -2,7 +2,7 @@
 //  ApiService.swift
 //  FinancialApp
 //
-//  Created by Cora on 08/09/22.
+//  Created by Anderson Oliveira on 08/09/22.
 //
 import Combine
 import UIKit
@@ -14,7 +14,6 @@ enum ApiError: Error {
     case invalidData
     case decodingError(description: String)
 }
-
 
 struct APIService {
     
@@ -33,34 +32,5 @@ struct APIService {
             .decode(type: SearchResults.self, decoder: JSONDecoder())
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
-    }
-    
-    func fetchNormal(keywords: String, completion: @escaping (Result<SearchResults, ApiError>) -> Void) {
-        
-        guard let url = URL(string: "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=\(keywords)&apikey=\(API_KEY)") else {
-            return completion(.failure(.invalidURL))
-        }
-        
-        let dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            if let error = error {
-                return completion(.failure(.requestError(description: error.localizedDescription)))
-            }
-            
-            guard let data = data else {
-                return completion(.failure(.invalidData))
-                
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let result = try decoder.decode(SearchResults.self, from: data)
-                completion(.success(result))
-            } catch {
-                completion(.failure(.decodingError(description: error.localizedDescription)))
-            }
-        }
-        dataTask.resume()
-
     }
 }

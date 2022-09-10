@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8723AB8028CB8CB4004F1935 /* UIAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8723AB7F28CB8CB4004F1935 /* UIAnimatable.swift */; };
+		8723AB8428CCFA87004F1935 /* CalculatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8723AB8328CCFA87004F1935 /* CalculatorCell.swift */; };
 		8739574A28CA93E400E3FADB /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8739574928CA93E400E3FADB /* ApiService.swift */; };
 		8739574D28CA95F900E3FADB /* SearchResultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8739574C28CA95F900E3FADB /* SearchResultsModel.swift */; };
 		8739575028CAAEC100E3FADB /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8739574F28CAAEC100E3FADB /* UIView+Constraints.swift */; };
+		8739575428CB66A600E3FADB /* SearchPlaceholderComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8739575328CB66A600E3FADB /* SearchPlaceholderComponentView.swift */; };
 		8765AB5728CA0E3600DCEE70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765AB5628CA0E3600DCEE70 /* AppDelegate.swift */; };
 		8765AB5928CA0E3600DCEE70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765AB5828CA0E3600DCEE70 /* SceneDelegate.swift */; };
 		8765AB5B28CA0E3600DCEE70 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765AB5A28CA0E3600DCEE70 /* SearchTableViewController.swift */; };
@@ -25,9 +28,12 @@
 		23355334275897EB9BA82BED /* Pods-FinancialApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinancialApp.release.xcconfig"; path = "Target Support Files/Pods-FinancialApp/Pods-FinancialApp.release.xcconfig"; sourceTree = "<group>"; };
 		3D5F09AD018DF1A8DD8E1C3C /* Pods-FinancialApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinancialApp.debug.xcconfig"; path = "Target Support Files/Pods-FinancialApp/Pods-FinancialApp.debug.xcconfig"; sourceTree = "<group>"; };
 		41102877E1181BAB178B87B9 /* Pods_FinancialApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinancialApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8723AB7F28CB8CB4004F1935 /* UIAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimatable.swift; sourceTree = "<group>"; };
+		8723AB8328CCFA87004F1935 /* CalculatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorCell.swift; sourceTree = "<group>"; };
 		8739574928CA93E400E3FADB /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		8739574C28CA95F900E3FADB /* SearchResultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsModel.swift; sourceTree = "<group>"; };
 		8739574F28CAAEC100E3FADB /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		8739575328CB66A600E3FADB /* SearchPlaceholderComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceholderComponentView.swift; sourceTree = "<group>"; };
 		8765AB5328CA0E3600DCEE70 /* FinancialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8765AB5628CA0E3600DCEE70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8765AB5828CA0E3600DCEE70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +82,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		8739575128CB64C400E3FADB /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				8765AB5628CA0E3600DCEE70 /* AppDelegate.swift */,
+				8765AB5828CA0E3600DCEE70 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		8765AB4A28CA0E3600DCEE70 = {
 			isa = PBXGroup;
 			children = (
@@ -97,13 +112,12 @@
 		8765AB5528CA0E3600DCEE70 /* FinancialApp */ = {
 			isa = PBXGroup;
 			children = (
+				8739575128CB64C400E3FADB /* Delegate */,
 				8739574E28CAAEAB00E3FADB /* Helpers */,
 				8739574B28CA95E200E3FADB /* Model */,
 				8739574828CA93DC00E3FADB /* Service */,
 				87C69C8A28CA57BA004914B3 /* Components */,
 				87C69C8728CA4075004914B3 /* Extensions */,
-				8765AB5628CA0E3600DCEE70 /* AppDelegate.swift */,
-				8765AB5828CA0E3600DCEE70 /* SceneDelegate.swift */,
 				8765AB5A28CA0E3600DCEE70 /* SearchTableViewController.swift */,
 				8765AB5C28CA0E3600DCEE70 /* Main.storyboard */,
 				8765AB5F28CA0E3A00DCEE70 /* Assets.xcassets */,
@@ -117,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				87C69C8828CA407F004914B3 /* ViewConfiguration.swift */,
+				8723AB7F28CB8CB4004F1935 /* UIAnimatable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -125,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				87C69C8B28CA5D35004914B3 /* CompanyAssetCell.swift */,
+				8739575328CB66A600E3FADB /* SearchPlaceholderComponentView.swift */,
+				8723AB8328CCFA87004F1935 /* CalculatorCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -261,12 +278,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8723AB8428CCFA87004F1935 /* CalculatorCell.swift in Sources */,
 				8765AB5B28CA0E3600DCEE70 /* SearchTableViewController.swift in Sources */,
+				8739575428CB66A600E3FADB /* SearchPlaceholderComponentView.swift in Sources */,
 				87C69C8C28CA5D35004914B3 /* CompanyAssetCell.swift in Sources */,
 				8739574A28CA93E400E3FADB /* ApiService.swift in Sources */,
 				87C69C8928CA407F004914B3 /* ViewConfiguration.swift in Sources */,
 				8765AB5728CA0E3600DCEE70 /* AppDelegate.swift in Sources */,
 				8765AB5928CA0E3600DCEE70 /* SceneDelegate.swift in Sources */,
+				8723AB8028CB8CB4004F1935 /* UIAnimatable.swift in Sources */,
 				8739574D28CA95F900E3FADB /* SearchResultsModel.swift in Sources */,
 				8739575028CAAEC100E3FADB /* UIView+Constraints.swift in Sources */,
 			);

@@ -28,16 +28,14 @@ final class CompanyAssetCell: UITableViewCell, ViewConfiguration {
     
     private lazy var assetSymbolLabel: UILabel = {
         let label = UILabel()
-        label.text = "BA"
-        label.font = UIFont(name: "Avenir Next", size: 18)
+        label.font = UIFont(name: "AvenirNext", size: 18)
         return label
     }()
     
     private lazy var assetTypeLabel: UILabel = {
         let label = UILabel()
-        label.text = "USD"
         label.textColor = .lightGray
-        label.font = UIFont(name: "Avenir Next", size: 12)
+        label.font = UIFont(name: "AvenirNext", size: 12)
         return label
     }()
     
@@ -50,7 +48,8 @@ final class CompanyAssetCell: UITableViewCell, ViewConfiguration {
     
     private lazy var assetNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "The Boing Company"
+        label.numberOfLines = 0
+        label.textAlignment = .right
         return label
     }()
     
@@ -63,9 +62,18 @@ final class CompanyAssetCell: UITableViewCell, ViewConfiguration {
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
     
-//    override func prepareForReuse() {
-//        
-//    }
+    //    override func prepareForReuse() {
+    //
+    //    }
+    
+    func configure(with searchResult: SearchResult) {
+        assetNameLabel.text = searchResult.name
+        assetSymbolLabel.text = searchResult.symbol
+        assetTypeLabel.text = searchResult.type
+            .appending(" ")
+            .appending(searchResult.currency)
+        
+    }
     
     //MARK: ViewConfiguration
     func configViews() {
