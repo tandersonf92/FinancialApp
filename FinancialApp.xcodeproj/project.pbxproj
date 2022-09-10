@@ -14,7 +14,6 @@
 		8739575028CAAEC100E3FADB /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8739574F28CAAEC100E3FADB /* UIView+Constraints.swift */; };
 		8739575428CB66A600E3FADB /* SearchPlaceholderComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8739575328CB66A600E3FADB /* SearchPlaceholderComponentView.swift */; };
 		873BE68E28CD051300323056 /* FormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BE68D28CD051300323056 /* FormCell.swift */; };
-		873BE69128CD100A00323056 /* InvestmentCalculatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BE69028CD100A00323056 /* InvestmentCalculatorTableViewController.swift */; };
 		873BE69328CD1A1200323056 /* InvestmentCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BE69228CD1A1200323056 /* InvestmentCalculatorViewController.swift */; };
 		873BE69628CD207C00323056 /* Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BE69528CD207C00323056 /* Factories.swift */; };
 		873BE69828CD31C100323056 /* InvestmentTextFieldAndAmountComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BE69728CD31C100323056 /* InvestmentTextFieldAndAmountComponent.swift */; };
@@ -40,7 +39,6 @@
 		8739574F28CAAEC100E3FADB /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		8739575328CB66A600E3FADB /* SearchPlaceholderComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceholderComponentView.swift; sourceTree = "<group>"; };
 		873BE68D28CD051300323056 /* FormCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCell.swift; sourceTree = "<group>"; };
-		873BE69028CD100A00323056 /* InvestmentCalculatorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentCalculatorTableViewController.swift; sourceTree = "<group>"; };
 		873BE69228CD1A1200323056 /* InvestmentCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentCalculatorViewController.swift; sourceTree = "<group>"; };
 		873BE69528CD207C00323056 /* Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factories.swift; sourceTree = "<group>"; };
 		873BE69728CD31C100323056 /* InvestmentTextFieldAndAmountComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentTextFieldAndAmountComponent.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				8765AB5A28CA0E3600DCEE70 /* SearchTableViewController.swift */,
-				873BE69028CD100A00323056 /* InvestmentCalculatorTableViewController.swift */,
 				873BE69228CD1A1200323056 /* InvestmentCalculatorViewController.swift */,
 			);
 			path = Views;
@@ -312,7 +309,6 @@
 				8739574A28CA93E400E3FADB /* ApiService.swift in Sources */,
 				87C69C8928CA407F004914B3 /* ViewConfiguration.swift in Sources */,
 				8765AB5728CA0E3600DCEE70 /* AppDelegate.swift in Sources */,
-				873BE69128CD100A00323056 /* InvestmentCalculatorTableViewController.swift in Sources */,
 				8765AB5928CA0E3600DCEE70 /* SceneDelegate.swift in Sources */,
 				8723AB8028CB8CB4004F1935 /* UIAnimatable.swift in Sources */,
 				8739574D28CA95F900E3FADB /* SearchResultsModel.swift in Sources */,

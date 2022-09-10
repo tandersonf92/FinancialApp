@@ -10,15 +10,24 @@ import UIKit
 final class InvestmentTextFieldAndAmountComponent: UIView, ViewConfiguration {
     
     private lazy var contentStackView: UIStackView = makeStackView(withOrientation: .vertical, withSpacing: -4)
-
+    
     private lazy var inputAmountField: UITextField = makeTextField(placeholder: "", withFont: UIFont(name: "AvenirNext-Medium", size: 18))
     
-    private lazy var labelHorizontalStackView: UIStackView = makeStackView(withOrientation: .horizontal, withSpacing: 4)
+    private lazy var labelHorizontalStackView: UIStackView = makeStackView(
+        withOrientation: .horizontal,
+        withSpacing: 4)
     
-    private lazy var descriptionLabel: UILabel = makeLabel(withText: "", withFont:  UIFont(name: "AvenirNext-Regular", size: 12), numberOfLines: 1, textColor: .darkGray)
+    private lazy var descriptionLabel: UILabel = makeLabel(
+        withText: "",
+        withFont: UIFont(name: "AvenirNext-Regular", size: 12),
+        numberOfLines: 1,
+        textColor: .darkGray)
     
-    private lazy var acronymCurrency: UILabel = makeLabel(withText: "", withFont:  UIFont(name: "AvenirNext-Regular", size: 12), textColor: .darkGray)
-
+    private lazy var acronymCurrency: UILabel = makeLabel(
+        withText: "",
+        withFont: UIFont(name: "AvenirNext-Regular", size: 12),
+        textColor: .darkGray)
+    
     //MARK: Init
     init(inputAmountField: String, descriptionLabel: String, acronymCurrency: String, textFieldBorderStyle: UITextField.BorderStyle = .none, textFieldHeight: CGFloat = 36){
         super.init(frame: .zero)
@@ -45,9 +54,5 @@ final class InvestmentTextFieldAndAmountComponent: UIView, ViewConfiguration {
     
     func setupConstraints() {
         contentStackView.setAnchorsEqual(to: self)
-    }
-    
-    deinit {
-        print("DEINITOU")
     }
 }

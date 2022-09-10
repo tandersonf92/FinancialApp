@@ -11,14 +11,7 @@ final class InvestmentCalculatorViewController: UIViewController, ViewConfigurat
     
     private lazy var calculatorComponent = CalculatorCell()
     private lazy var formComponent = FormCell()
-    
-    private lazy var contentStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 4
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
+    private lazy var contentStackView: UIStackView = makeStackView(withOrientation: .vertical, withSpacing: 4)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +25,6 @@ final class InvestmentCalculatorViewController: UIViewController, ViewConfigurat
     func buildViews() {
         view.addSubview(contentStackView)
         [calculatorComponent, formComponent].forEach(contentStackView.addArrangedSubview)
-//        [calculatorComponent].forEach(contentStackView.addArrangedSubview)
     }
     
     func setupConstraints() {

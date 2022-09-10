@@ -9,10 +9,8 @@ import UIKit
 
 final class FormCell: UIView, ViewConfiguration {
     
-    static let identifier = "FormCell"
-    
     private lazy var mainVerticalStackView: UIStackView = makeStackView(withOrientation: .vertical, withSpacing: 8)
-
+    
     private lazy var initialInvestmentComponent = InvestmentTextFieldAndAmountComponent(
         inputAmountField: "Enter your initial investment amount",
         descriptionLabel: "Initial investment amount",
@@ -30,7 +28,7 @@ final class FormCell: UIView, ViewConfiguration {
         acronymCurrency: "(USD)")
     
     private lazy var sliderControl: UISlider = {
-       let slider = UISlider()
+        let slider = UISlider()
         return slider
     }()
     

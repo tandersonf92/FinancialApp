@@ -7,36 +7,46 @@
 
 import UIKit
 
-func makeLabel(withText text: String, textAlignment: NSTextAlignment = .left, withFont: UIFont? = .systemFont(ofSize: 17), numberOfLines: Int = 0, textColor: UIColor = .black) -> UILabel {
+func makeLabel(withText text: String, textAlignment: NSTextAlignment = .left, withFont font: UIFont? = .systemFont(ofSize: 17), numberOfLines: Int = 0, textColor: UIColor = .black) -> UILabel {
     let label = UILabel()
     label.text = text
     label.numberOfLines = numberOfLines
     label.textAlignment = textAlignment
     label.textColor = textColor
-    if let withFont = withFont {
-        label.font = withFont
+    if let font = font {
+        label.font = font
     }
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
 }
 
-func makeStackView(withOrientation axis: NSLayoutConstraint.Axis, withSpacing: CGFloat = 0, withDistribution: UIStackView.Distribution = .fill, withAlignment: UIStackView.Alignment = .fill ) -> UIStackView {
+func makeStackView(withOrientation axis: NSLayoutConstraint.Axis, withSpacing spacing: CGFloat = 0, withDistribution: UIStackView.Distribution = .fill, withAlignment alignment: UIStackView.Alignment = .fill ) -> UIStackView {
     let stackView = UIStackView()
     stackView.axis = axis
     stackView.distribution = withDistribution
-    stackView.alignment = withAlignment
-    stackView.spacing = withSpacing
+    stackView.alignment = alignment
+    stackView.spacing = spacing
     stackView.translatesAutoresizingMaskIntoConstraints = false
     return stackView
 }
 
-func makeTextField(withBorderStyle: UITextField.BorderStyle = .none, placeholder: String = "", withFont: UIFont? = .systemFont(ofSize: 17), withSize: Int = 18) -> UITextField {
+func makeTextField(withBorderStyle borderStyle: UITextField.BorderStyle = .none, placeholder: String = "", withFont font: UIFont? = .systemFont(ofSize: 17), withSize: Int = 18) -> UITextField {
     let textField = UITextField()
-    textField.borderStyle = withBorderStyle
+    textField.borderStyle = borderStyle
     textField.placeholder = placeholder
-    if let withFont = withFont {
-        textField.font = withFont
+    if let font = font {
+        textField.font = font
     }
     textField.translatesAutoresizingMaskIntoConstraints = false
     return textField
+}
+
+func makeUIImageView(withImage image: UIImage?, contentMode: UIImageView.ContentMode = .scaleAspectFit) -> UIImageView {
+    let imageView = UIImageView()
+    if let image = image {
+        imageView.image = image
+    }
+    imageView.contentMode = contentMode
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    return imageView
 }

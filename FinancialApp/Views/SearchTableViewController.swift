@@ -63,7 +63,7 @@ final class SearchTableViewController: UITableViewController, UIAnimatable {
                 guard !searchQuery.isEmpty else { return }
                 showLoadingAnimation()
                 self.apiService.fetchSymbolsPublisher(keywords: searchQuery).sink { (completion) in
-                    hideLoadingAnimation()
+                    self.hideLoadingAnimation()
                     switch completion {
                     case .failure(let error):
                         print(error.localizedDescription)
@@ -78,7 +78,6 @@ final class SearchTableViewController: UITableViewController, UIAnimatable {
         $mode.sink { [unowned self] (mode) in
             switch mode {
             case .onboarding:
-                
                 tableView.backgroundView = SearchPlaceholderComponentView()
             case .search:
                 tableView.backgroundView = nil
@@ -91,7 +90,6 @@ extension SearchTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         searchResults?.items.count ?? 0
-//        2
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,22 +98,13 @@ extension SearchTableViewController {
             let searchResult = searchResults.items[indexPath.row]
             cell.configure(with: searchResult)
         }
-        
         return cell
     }
     
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        print("indexPath: \(indexPath)")
-//        print("indexPath.row: \(indexPath.row)")
-//        navigationController?.pushViewController(InvestmentCalculatorTableViewController(style: .plain, printzin: "LoL"), animated: true)
-        
         navigationController?.pushViewController(InvestmentCalculatorViewController(), animated: true)
     }
 }
-
-
 
 extension SearchTableViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     
@@ -125,7 +114,6 @@ extension SearchTableViewController: UISearchResultsUpdating, UISearchController
         self.searchQuery = searchQuery
     }
     func willPresentSearchController(_ searchController: UISearchController) { // vai servir para mudar o Mode ( sair do onboarding )
-        print("Will PRESENT")
         mode = .search
     }
 }

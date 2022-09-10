@@ -9,32 +9,15 @@ import UIKit
 
 final class SearchPlaceholderComponentView: UIView, ViewConfiguration {
     
-    private lazy var placeholderImage: UIImageView = {
-       let imageView = UIImageView()
-        imageView.image = UIImage(named: "pigWithGraphic")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
     
-    private lazy var titleLabel: UILabel = {
-       let title = UILabel()
-        title.text = "Search for companies to calculate potential returns via dollar cost avaraging."
-        title.numberOfLines = 0
-        title.font = UIFont(name: "AvenirNext-Medium", size: 14)
-        title.textAlignment = .center
-        return title
-    }()
+    private lazy var placeholderImage: UIImageView = makeUIImageView(withImage: UIImage(named: "pigWithGraphic"))
+
+    private lazy var titleLabel: UILabel = makeLabel(
+        withText: "Search for companies to calculate potential returns via dollar cost avaraging.",
+        textAlignment: .center,
+        withFont: UIFont(name: "AvenirNext-Medium", size: 14))
     
     private lazy var contentStackView: UIStackView = makeStackView(withOrientation: .vertical, withSpacing: 24)
-    
-//    private lazy var contentStackView: UIStackView = {
-//        let stackView = UIStackView()
-//        stackView.axis = .vertical
-//        stackView.spacing = 24
-//        stackView.translatesAutoresizingMaskIntoConstraints = false
-//        return stackView
-//    }()
-    
     
     //MARK: Init
     init(){
@@ -45,8 +28,7 @@ final class SearchPlaceholderComponentView: UIView, ViewConfiguration {
     required init?(coder: NSCoder) { nil }
     
     //MARK: ViewConfiguration
-    func configViews() {
-    }
+    func configViews() {}
     
     func buildViews() {
         addSubview(contentStackView)
