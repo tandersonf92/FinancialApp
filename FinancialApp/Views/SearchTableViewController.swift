@@ -34,9 +34,7 @@ final class SearchTableViewController: UITableViewController, UIAnimatable {
         tableView.register(CompanyAssetCell.self, forCellReuseIdentifier: CompanyAssetCell.identifier)
     }
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +50,6 @@ final class SearchTableViewController: UITableViewController, UIAnimatable {
         navigationItem.searchController = searchController
         navigationItem.title = "Search"
         navigationController?.navigationBar.prefersLargeTitles = true // olhar. pois a navController esta nil
-    
-
     }
     
     private func setupTableView() {
@@ -64,6 +60,7 @@ final class SearchTableViewController: UITableViewController, UIAnimatable {
         $searchQuery
             .debounce(for: .milliseconds(750), scheduler: RunLoop.main)
             .sink { [unowned self](searchQuery) in
+                guard !searchQuery.isEmpty else { return }
                 showLoadingAnimation()
                 self.apiService.fetchSymbolsPublisher(keywords: searchQuery).sink { (completion) in
                     hideLoadingAnimation()
@@ -94,6 +91,7 @@ extension SearchTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         searchResults?.items.count ?? 0
+//        2
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,6 +102,16 @@ extension SearchTableViewController {
         }
         
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        print("indexPath: \(indexPath)")
+//        print("indexPath.row: \(indexPath.row)")
+//        navigationController?.pushViewController(InvestmentCalculatorTableViewController(style: .plain, printzin: "LoL"), animated: true)
+        
+        navigationController?.pushViewController(InvestmentCalculatorViewController(), animated: true)
     }
 }
 

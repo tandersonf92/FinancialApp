@@ -2,7 +2,7 @@
 //  SearchResultsModel.swift
 //  FinancialApp
 //
-//  Created by Cora on 08/09/22.
+//  Created by Anderson Oliveira on 08/09/22.
 //
 
 import Foundation

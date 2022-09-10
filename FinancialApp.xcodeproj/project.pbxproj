@@ -13,6 +13,11 @@
 		8739574D28CA95F900E3FADB /* SearchResultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8739574C28CA95F900E3FADB /* SearchResultsModel.swift */; };
 		8739575028CAAEC100E3FADB /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8739574F28CAAEC100E3FADB /* UIView+Constraints.swift */; };
 		8739575428CB66A600E3FADB /* SearchPlaceholderComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8739575328CB66A600E3FADB /* SearchPlaceholderComponentView.swift */; };
+		873BE68E28CD051300323056 /* FormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BE68D28CD051300323056 /* FormCell.swift */; };
+		873BE69128CD100A00323056 /* InvestmentCalculatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BE69028CD100A00323056 /* InvestmentCalculatorTableViewController.swift */; };
+		873BE69328CD1A1200323056 /* InvestmentCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BE69228CD1A1200323056 /* InvestmentCalculatorViewController.swift */; };
+		873BE69628CD207C00323056 /* Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BE69528CD207C00323056 /* Factories.swift */; };
+		873BE69828CD31C100323056 /* InvestmentTextFieldAndAmountComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BE69728CD31C100323056 /* InvestmentTextFieldAndAmountComponent.swift */; };
 		8765AB5728CA0E3600DCEE70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765AB5628CA0E3600DCEE70 /* AppDelegate.swift */; };
 		8765AB5928CA0E3600DCEE70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765AB5828CA0E3600DCEE70 /* SceneDelegate.swift */; };
 		8765AB5B28CA0E3600DCEE70 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765AB5A28CA0E3600DCEE70 /* SearchTableViewController.swift */; };
@@ -34,6 +39,11 @@
 		8739574C28CA95F900E3FADB /* SearchResultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsModel.swift; sourceTree = "<group>"; };
 		8739574F28CAAEC100E3FADB /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		8739575328CB66A600E3FADB /* SearchPlaceholderComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceholderComponentView.swift; sourceTree = "<group>"; };
+		873BE68D28CD051300323056 /* FormCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCell.swift; sourceTree = "<group>"; };
+		873BE69028CD100A00323056 /* InvestmentCalculatorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentCalculatorTableViewController.swift; sourceTree = "<group>"; };
+		873BE69228CD1A1200323056 /* InvestmentCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentCalculatorViewController.swift; sourceTree = "<group>"; };
+		873BE69528CD207C00323056 /* Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factories.swift; sourceTree = "<group>"; };
+		873BE69728CD31C100323056 /* InvestmentTextFieldAndAmountComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentTextFieldAndAmountComponent.swift; sourceTree = "<group>"; };
 		8765AB5328CA0E3600DCEE70 /* FinancialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8765AB5628CA0E3600DCEE70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8765AB5828CA0E3600DCEE70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				8739574F28CAAEC100E3FADB /* UIView+Constraints.swift */,
+				873BE69528CD207C00323056 /* Factories.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -89,6 +100,16 @@
 				8765AB5828CA0E3600DCEE70 /* SceneDelegate.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		873BE68F28CD0FF400323056 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8765AB5A28CA0E3600DCEE70 /* SearchTableViewController.swift */,
+				873BE69028CD100A00323056 /* InvestmentCalculatorTableViewController.swift */,
+				873BE69228CD1A1200323056 /* InvestmentCalculatorViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8765AB4A28CA0E3600DCEE70 = {
@@ -112,13 +133,13 @@
 		8765AB5528CA0E3600DCEE70 /* FinancialApp */ = {
 			isa = PBXGroup;
 			children = (
+				873BE68F28CD0FF400323056 /* Views */,
 				8739575128CB64C400E3FADB /* Delegate */,
 				8739574E28CAAEAB00E3FADB /* Helpers */,
 				8739574B28CA95E200E3FADB /* Model */,
 				8739574828CA93DC00E3FADB /* Service */,
 				87C69C8A28CA57BA004914B3 /* Components */,
 				87C69C8728CA4075004914B3 /* Extensions */,
-				8765AB5A28CA0E3600DCEE70 /* SearchTableViewController.swift */,
 				8765AB5C28CA0E3600DCEE70 /* Main.storyboard */,
 				8765AB5F28CA0E3A00DCEE70 /* Assets.xcassets */,
 				8765AB6128CA0E3A00DCEE70 /* LaunchScreen.storyboard */,
@@ -142,6 +163,8 @@
 				87C69C8B28CA5D35004914B3 /* CompanyAssetCell.swift */,
 				8739575328CB66A600E3FADB /* SearchPlaceholderComponentView.swift */,
 				8723AB8328CCFA87004F1935 /* CalculatorCell.swift */,
+				873BE68D28CD051300323056 /* FormCell.swift */,
+				873BE69728CD31C100323056 /* InvestmentTextFieldAndAmountComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -279,12 +302,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8723AB8428CCFA87004F1935 /* CalculatorCell.swift in Sources */,
+				873BE68E28CD051300323056 /* FormCell.swift in Sources */,
 				8765AB5B28CA0E3600DCEE70 /* SearchTableViewController.swift in Sources */,
+				873BE69628CD207C00323056 /* Factories.swift in Sources */,
 				8739575428CB66A600E3FADB /* SearchPlaceholderComponentView.swift in Sources */,
 				87C69C8C28CA5D35004914B3 /* CompanyAssetCell.swift in Sources */,
+				873BE69828CD31C100323056 /* InvestmentTextFieldAndAmountComponent.swift in Sources */,
+				873BE69328CD1A1200323056 /* InvestmentCalculatorViewController.swift in Sources */,
 				8739574A28CA93E400E3FADB /* ApiService.swift in Sources */,
 				87C69C8928CA407F004914B3 /* ViewConfiguration.swift in Sources */,
 				8765AB5728CA0E3600DCEE70 /* AppDelegate.swift in Sources */,
+				873BE69128CD100A00323056 /* InvestmentCalculatorTableViewController.swift in Sources */,
 				8765AB5928CA0E3600DCEE70 /* SceneDelegate.swift in Sources */,
 				8723AB8028CB8CB4004F1935 /* UIAnimatable.swift in Sources */,
 				8739574D28CA95F900E3FADB /* SearchResultsModel.swift in Sources */,

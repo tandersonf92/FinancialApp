@@ -2,7 +2,7 @@
 //  UIAnimatable.swift
 //  FinancialApp
 //
-//  Created by Cora on 09/09/22.
+//  Created by Anderson Oliveira on 09/09/22.
 //
 
 import MBProgressHUD

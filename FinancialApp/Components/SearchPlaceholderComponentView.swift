@@ -25,13 +25,15 @@ final class SearchPlaceholderComponentView: UIView, ViewConfiguration {
         return title
     }()
     
-    private lazy var contentStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 24
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
+    private lazy var contentStackView: UIStackView = makeStackView(withOrientation: .vertical, withSpacing: 24)
+    
+//    private lazy var contentStackView: UIStackView = {
+//        let stackView = UIStackView()
+//        stackView.axis = .vertical
+//        stackView.spacing = 24
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//        return stackView
+//    }()
     
     
     //MARK: Init
