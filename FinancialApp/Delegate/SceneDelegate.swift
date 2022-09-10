@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  FinancialApp
 //
-//  Created by Cora on 08/09/22.
+//  Created by Anderson Oliveira on 08/09/22.
 //
 
 import UIKit
@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
+        let navinavi = UINavigationController(rootViewController: InvestmentCalculatorViewController())
         let navigationController = UINavigationController(rootViewController: SearchTableViewController(style: .plain))
         window?.rootViewController = navigationController
     }
