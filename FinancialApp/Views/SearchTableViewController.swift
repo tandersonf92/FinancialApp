@@ -38,7 +38,7 @@ final class SearchTableViewController: UITableViewController, UIAnimatable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         searchController.delegate = self
         searchController.searchResultsUpdater = self
         setupNavigationBar()
@@ -102,8 +102,35 @@ extension SearchTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(InvestmentCalculatorViewController(), animated: true)
+        
+        if let searchResults = self.searchResults {
+            let searchResult = searchResults.items[indexPath.item]
+            let symbol = searchResult.symbol
+            print(symbol)
+            handleSelection(for: symbol, searchResult: searchResult)
+        }
     }
+    
+    private func handleSelection(for symbol: String, searchResult: SearchResult) {
+        showLoadingAnimation()
+        apiService.fetchTimeSeriesMonthlyAdjusterPubliser(keywords: symbol).sink { [weak self] (completionResult) in
+            self?.hideLoadingAnimation()
+            switch completionResult {
+            case .finished:
+                break
+            case .failure(let error):
+                print(error)
+            }
+        } receiveValue: { [weak self] (timeSeriesMonthlyAdjusted) in
+            self?.hideLoadingAnimation()
+            let asset = Asset(searchResult: searchResult, timeSeriesMonthlyAdjusted: timeSeriesMonthlyAdjusted)
+            self?.navigationController?.pushViewController(InvestmentCalculatorViewController(asset: asset), animated: true)
+            
+            print("Success: \(timeSeriesMonthlyAdjusted)")
+        }.store(in: &subscribers)
+        
+    }
+    
 }
 
 extension SearchTableViewController: UISearchResultsUpdating, UISearchControllerDelegate {

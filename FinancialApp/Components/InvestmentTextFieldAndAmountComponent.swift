@@ -29,7 +29,7 @@ final class InvestmentTextFieldAndAmountComponent: UIView, ViewConfiguration {
         textColor: .darkGray)
     
     //MARK: Init
-    init(inputAmountField: String, descriptionLabel: String, acronymCurrency: String, textFieldBorderStyle: UITextField.BorderStyle = .none, textFieldHeight: CGFloat = 36){
+    init(inputAmountField: String, descriptionLabel: String, acronymCurrency: String = "", textFieldBorderStyle: UITextField.BorderStyle = .none, textFieldHeight: CGFloat = 36){
         super.init(frame: .zero)
         setupViews()
         self.inputAmountField.placeholder = inputAmountField
@@ -40,6 +40,11 @@ final class InvestmentTextFieldAndAmountComponent: UIView, ViewConfiguration {
     }
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
+    
+    
+    func updateAcronymCurrency(currency: String) {
+        acronymCurrency.text = currency
+    }
     
     //MARK: ViewConfiguration
     func configViews() {

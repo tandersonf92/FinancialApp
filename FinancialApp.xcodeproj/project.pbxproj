@@ -25,6 +25,9 @@
 		8765AB6328CA0E3A00DCEE70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8765AB6128CA0E3A00DCEE70 /* LaunchScreen.storyboard */; };
 		87C69C8928CA407F004914B3 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C69C8828CA407F004914B3 /* ViewConfiguration.swift */; };
 		87C69C8C28CA5D35004914B3 /* CompanyAssetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C69C8B28CA5D35004914B3 /* CompanyAssetCell.swift */; };
+		87CCBDD028CE0B1A0076D4D4 /* TimeSeriesMonthlyAdjusted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCBDCF28CE0B1A0076D4D4 /* TimeSeriesMonthlyAdjusted.swift */; };
+		87CCBDD428CE1E6A0076D4D4 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCBDD328CE1E6A0076D4D4 /* Asset.swift */; };
+		87CCBDD628CE24230076D4D4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CCBDD528CE24230076D4D4 /* String+Extensions.swift */; };
 		ACED3715B71B763032E38B27 /* Pods_FinancialApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41102877E1181BAB178B87B9 /* Pods_FinancialApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +55,9 @@
 		8765AB6428CA0E3A00DCEE70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87C69C8828CA407F004914B3 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		87C69C8B28CA5D35004914B3 /* CompanyAssetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyAssetCell.swift; sourceTree = "<group>"; };
+		87CCBDCF28CE0B1A0076D4D4 /* TimeSeriesMonthlyAdjusted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesMonthlyAdjusted.swift; sourceTree = "<group>"; };
+		87CCBDD328CE1E6A0076D4D4 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		87CCBDD528CE24230076D4D4 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,12 +80,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		8739574B28CA95E200E3FADB /* Model */ = {
+		8739574B28CA95E200E3FADB /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				8739574C28CA95F900E3FADB /* SearchResultsModel.swift */,
+				87CCBDCF28CE0B1A0076D4D4 /* TimeSeriesMonthlyAdjusted.swift */,
+				87CCBDD328CE1E6A0076D4D4 /* Asset.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		8739574E28CAAEAB00E3FADB /* Helpers */ = {
@@ -133,7 +141,7 @@
 				873BE68F28CD0FF400323056 /* Views */,
 				8739575128CB64C400E3FADB /* Delegate */,
 				8739574E28CAAEAB00E3FADB /* Helpers */,
-				8739574B28CA95E200E3FADB /* Model */,
+				8739574B28CA95E200E3FADB /* Models */,
 				8739574828CA93DC00E3FADB /* Service */,
 				87C69C8A28CA57BA004914B3 /* Components */,
 				87C69C8728CA4075004914B3 /* Extensions */,
@@ -150,6 +158,7 @@
 			children = (
 				87C69C8828CA407F004914B3 /* ViewConfiguration.swift */,
 				8723AB7F28CB8CB4004F1935 /* UIAnimatable.swift */,
+				87CCBDD528CE24230076D4D4 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -298,9 +307,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87CCBDD428CE1E6A0076D4D4 /* Asset.swift in Sources */,
 				8723AB8428CCFA87004F1935 /* CalculatorCell.swift in Sources */,
 				873BE68E28CD051300323056 /* FormCell.swift in Sources */,
 				8765AB5B28CA0E3600DCEE70 /* SearchTableViewController.swift in Sources */,
+				87CCBDD628CE24230076D4D4 /* String+Extensions.swift in Sources */,
+				87CCBDD028CE0B1A0076D4D4 /* TimeSeriesMonthlyAdjusted.swift in Sources */,
 				873BE69628CD207C00323056 /* Factories.swift in Sources */,
 				8739575428CB66A600E3FADB /* SearchPlaceholderComponentView.swift in Sources */,
 				87C69C8C28CA5D35004914B3 /* CompanyAssetCell.swift in Sources */,

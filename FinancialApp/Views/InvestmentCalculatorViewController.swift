@@ -9,9 +9,22 @@ import UIKit
 
 final class InvestmentCalculatorViewController: UIViewController, ViewConfiguration {
     
+    
+//    private var asset: Asset?
+    
+    
     private lazy var calculatorComponent = CalculatorCell()
     private lazy var formComponent = FormCell()
     private lazy var contentStackView: UIStackView = makeStackView(withOrientation: .vertical, withSpacing: 4)
+    
+    init(asset: Asset) {
+        super.init(nibName: nil, bundle: nil)
+//        self.asset = asset calculatorComponent.updateAssetSymbolAndAcronymCurrency(asset: asset)
+        formComponent.updateCurrency(asset: asset)
+        
+    }
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { nil }
     
     override func viewDidLoad() {
         super.viewDidLoad()
