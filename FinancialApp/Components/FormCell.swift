@@ -14,18 +14,17 @@ final class FormCell: UIView, ViewConfiguration {
     private lazy var initialInvestmentComponent = InvestmentTextFieldAndAmountComponent(
         inputAmountField: "Enter your initial investment amount",
         descriptionLabel: "Initial investment amount",
-        acronymCurrency: "(USD)")
-    
+        acronymCurrency: "")
     
     private lazy var monthlyCostComponent = InvestmentTextFieldAndAmountComponent(
         inputAmountField: "Monthly dollar cost averaging amount",
         descriptionLabel: "Monthly dollar cost averaging amount",
-        acronymCurrency: "(USD)")
+        acronymCurrency: "")
     
     private lazy var initialDateOfInvestmentComponent = InvestmentTextFieldAndAmountComponent(
         inputAmountField: "Enter the initial date of investment",
         descriptionLabel: "Initial date of investment",
-        acronymCurrency: "(USD)")
+        acronymCurrency: "")
     
     private lazy var sliderControl: UISlider = {
         let slider = UISlider()
@@ -38,6 +37,12 @@ final class FormCell: UIView, ViewConfiguration {
     }
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
+    
+    func updateCurrency (asset: Asset) {
+        [initialInvestmentComponent, monthlyCostComponent].forEach { $0.updateAcronymCurrency(currency: asset.searchResult.currency.addBrackets())
+        }
+    }
+    
     
     //MARK: ViewConfiguration
     func configViews() {

@@ -16,11 +16,11 @@ final class CalculatorCell: UIView, ViewConfiguration {
         withOrientation: .horizontal,
         withSpacing: 4)
     
-    private lazy var textLabel11: UILabel = makeLabel(
+    private lazy var symbolLabel: UILabel = makeLabel(
         withText: "SPY",
         withFont: UIFont(name: "AvenirNext-DemiBold", size: 18))
     
-    private lazy var textLabel12: UILabel = makeLabel(
+    private lazy var nameLabel: UILabel = makeLabel(
         withText: "S&P 500 ETF",
         withFont: UIFont(name: "AvenirNext-Bold", size: 14),
         textColor: .lightGray)
@@ -36,7 +36,7 @@ final class CalculatorCell: UIView, ViewConfiguration {
         withText: "Current Value",
         withFont: UIFont(name: "AvenirNext", size: 12))
     
-    private lazy var textLabel22: UILabel = makeLabel(
+    private lazy var firstCurrencyAcronym: UILabel = makeLabel(
         withText: "(USD)",
         withFont: UIFont(name: "AvenirNext", size: 12))
     
@@ -60,7 +60,7 @@ final class CalculatorCell: UIView, ViewConfiguration {
         return view
     }()
     
-    private lazy var textLabel32: UILabel = makeLabel(
+    private lazy var investmentAmountCurrencyLabel: UILabel = makeLabel(
         withText: "USD",
         withFont: UIFont(name: "AvenirNext-DemiBold", size: 10))
     
@@ -113,12 +113,19 @@ final class CalculatorCell: UIView, ViewConfiguration {
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
     
+    func updateAssetSymbolAndAcronymCurrency(asset: Asset) {
+        symbolLabel.text = asset.searchResult.symbol
+        nameLabel.text = asset.searchResult.name
+        firstCurrencyAcronym.text = asset.searchResult.currency
+        investmentAmountCurrencyLabel.text = asset.searchResult.currency
+    }
+    
     //MARK: ViewConfiguration
     func configViews() {
-        textLabel11.setContentHuggingPriority(.init(rawValue: 951), for: .horizontal)
+        symbolLabel.setContentHuggingPriority(.init(rawValue: 951), for: .horizontal)
         textLabel21.setContentHuggingPriority(.init(rawValue: 951), for: .horizontal)
         
-        textLabel32.setContentHuggingPriority(.init(rawValue: 951), for: .horizontal)
+        investmentAmountCurrencyLabel.setContentHuggingPriority(.init(rawValue: 951), for: .horizontal)
         textLabel33.setContentHuggingPriority(.init(rawValue: 951), for: .horizontal)
         
         textLabel42.setContentHuggingPriority(.init(rawValue: 951), for: .horizontal)
@@ -131,13 +138,13 @@ final class CalculatorCell: UIView, ViewConfiguration {
         addSubview(mainContentVerticalStackView)
         [contentHorizontalStackView1, verticalStackView1, textLabelBetweenTwoStacks,  verticalStackView2, verticalStackView3,verticalStackView4].forEach(mainContentVerticalStackView.addArrangedSubview)
         
-        [textLabel11, textLabel12].forEach(contentHorizontalStackView1.addArrangedSubview)
+        [symbolLabel, nameLabel].forEach(contentHorizontalStackView1.addArrangedSubview)
         
         verticalStackView1.addArrangedSubview(contentHorizontalStackView2)
-        [textLabel21, textLabel22].forEach(contentHorizontalStackView2.addArrangedSubview)
+        [textLabel21, firstCurrencyAcronym].forEach(contentHorizontalStackView2.addArrangedSubview)
         
         verticalStackView2.addArrangedSubview(contentHorizontalStackView3)
-        [textLabel31, textLabel32, textLabel33].forEach(contentHorizontalStackView3.addArrangedSubview)
+        [textLabel31, investmentAmountCurrencyLabel, textLabel33].forEach(contentHorizontalStackView3.addArrangedSubview)
         
         verticalStackView3.addArrangedSubview(contentHorizontalStackView4)
         [textLabel41, voidView, textLabel42, textLabel43].forEach(contentHorizontalStackView4.addArrangedSubview)
